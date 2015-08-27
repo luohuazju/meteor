@@ -68,6 +68,10 @@ Google.requestCredential = function (options, credentialRequestCompleteCallback)
       return encodeURIComponent(param) + '=' + encodeURIComponent(value);
     }).join("&");
 
+  if (options.loginHint) {
+    loginUrl += '&login_hint=' + encodeURIComponent(options.loginHint);
+  }
+
   OAuth.launchLogin({
     loginService: "google",
     loginStyle: loginStyle,
